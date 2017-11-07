@@ -9,8 +9,7 @@
 </head>
 <body>    
  <center> 
-<c:set var="car" value="${carro}" />
-<form action="/LojaDeCarro/carro" method="post">
+<form action="" method="post">
 
 		<input type="hidden" name="acao" value="Alterar" />
 		<input type="hidden" name="id" value="${car.id}">

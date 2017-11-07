@@ -5,25 +5,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>cadastro do carro</title>
+<title></title>
 </head>
 <body>
 
 	
 	<center>
-	<h1>Cadastre o carro, ${usuario}!!!!</h1>
+	<h1></h1>
 	
-	<form action="/LojaDeCarro/carro" method="post">
-		<input type="hidden" name="acao" value="inserir" />
+	<form action="" method="post">
+		<input type="hidden" name="acao" value="create" />
 		Nome: <input type="text" name="nome" required="required"></br>
 		<p>Preço: <input type="number" name="preco" required="required"></br>
-		<p>Fornecedor: <input type="text" name="fornecedor" required="required"></br>
-		<p><input type="submit" value="cadastrar">
-		<input type="reset" value="Limpar">
+		<p>isnb: <input type="text" name="isnb" required="required"></br>
+		<p>Autor: <input type="text" name="autor" required="required"></br>
+		<p><input type="submit" value="create">
 
 	</form>	
-	
-	<c:import url="../comum/opcaoBotoesCarro.jsp"/>
 	</center>
 </body>
 </html>

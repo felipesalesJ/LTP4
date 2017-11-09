@@ -23,38 +23,65 @@ public class LivroServlet extends HttpServlet{
 		LivroBo livroBo = new LivroBo();
 		
 		switch("acao"){
-		case "create":
+		case "CREATE":
 			System.out.println();
 			try{
 				livro.setNome(req.getParameter("nome"));
 				livro.setIsnb(req.getParameter("isnb"));
 				livro.setAutor(req.getParameter("autor"));
 				livro.setPreco(Double.parseDouble("preco"));
+				livroBo.criar(livro);
+				resp.sendRedirect("/LTP4-Livraria/livro?acao=readAll");
 			}catch(Exception e){
-				System.out.println("error");
+				System.out.println("error ao criar");
 			}
 			break;
 			
-		case "read":
+		case "SEARCH":
+			System.out.println();
+			try{
+				livro = livroBo.buscaLivroId(Integer.parseInt(req.getParameter("id")));
+				req.setAttribute("livro", livro);
+				req.getRequestDispatcher("jsp/livro/alterarLivro.jsp").forward(req, resp);
+			}catch(Exception e){
+				System.out.println("error ao procurar");
+			}
+			break;
+			
+		case "ReadALL":
 			System.out.println();
 			try{
 				List<Livro> lista = LivroBo.listarTodos();
-				req.getAttribute("lista");
+				req.setAttribute("lista", lista);
+				req.getRequestDispatcher("jsp/livro/alterarLivro.jsp").forward(req, resp);
 			}catch(Exception e){
-				System.out.println("error");
+				System.out.println("error ao listar");
 			}
 			break;
 			
-		case "readAll":
+		case "UPDATE":
 			System.out.println();
+			try{
+				livro.setNome(req.getParameter("nome"));
+				livro.setIsnb(req.getParameter("isnb"));
+				livro.setAutor(req.getParameter("autor"));
+				livro.setPreco(Double.parseDouble("preco"));
+				livroBo.alterar(livro);
+				resp.sendRedirect("/LTP4-Livraria/livro?acao=readAll");
+			}catch(Exception e){
+				System.out.println("error no update");
+			}
 			break;
 			
-		case "update":
+		case "DELETE":
 			System.out.println();
-			break;
-			
-		case "delete":
-			System.out.println();
+			try {
+				livro = livroBo.buscaLivroId(Integer.getInteger(req.getParameter("idlivro")));
+				livroBo.deleta(livro);
+				resp.sendRedirect("/LTP4-Livraria/livro?acao=readAll");
+			} catch (Exception e) {
+				System.out.println("error no delete");
+			}
 			break;
 		}
 	}

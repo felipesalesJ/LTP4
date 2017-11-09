@@ -13,8 +13,8 @@
 	<center>
 	<h1></h1>
 	
-	<form action="" method="post">
-		<input type="hidden" name="acao" value="create" />
+	<form action="/LPT4-Livraria/livro" method="post">
+		<input type="hidden" name="acao" value="CREATE" />
 		Nome: <input type="text" name="nome" required="required"></br>
 		<p>Preço: <input type="number" name="preco" required="required"></br>
 		<p>isnb: <input type="text" name="isnb" required="required"></br>

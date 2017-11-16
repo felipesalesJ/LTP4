@@ -1,0 +1,23 @@
+CREATE TABLE cliente
+(
+    idcliente INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(200) NOT NULL,
+    cpf VARCHAR(20) NOT NULL
+);
+CREATE TABLE livro
+(
+    idlivro INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    isnb VARCHAR(100) NOT NULL,
+    preco DOUBLE NOT NULL,
+    autor VARCHAR(200) NOT NULL
+);
+CREATE TABLE venda
+(
+    idvenda INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    livro_id INT(11) NOT NULL,
+    cliente_id INT(11) NOT NULL
+);
+ALTER TABLE venda ADD FOREIGN KEY (livro_id) REFERENCES livro (idlivro);
+ALTER TABLE venda ADD FOREIGN KEY (cliente_id) REFERENCES cliente (idcliente);

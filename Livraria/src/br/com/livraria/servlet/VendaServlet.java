@@ -30,13 +30,12 @@ public class VendaServlet extends HttpServlet{
 		VendaBo vendaBo = new  VendaBo();
 		Venda venda = new Venda();
 		
-		switch("acao"){
-		case "venda":
+		if(acao.equals("VENDER")){
 			System.out.println();
 			try {
 
 				List<Cliente> clientes;
-				clientes = clienteBo.listarTodos();
+				clientes = ClienteBo.listarTodos();
 				req.setAttribute("clientes", clientes);
 				
 				List<Livro> livros;
@@ -46,9 +45,8 @@ public class VendaServlet extends HttpServlet{
 			} catch (Exception e) {
 				req.getRequestDispatcher("/deuruim.jsp").forward(req, resp);
 			}
-			break;
 			
-		case "CadastrarVenda":
+		}else if(acao.equals("createVenda")){
 			try{
 				livro.setIdlivro(Integer.parseInt(req.getParameter("idLivro")));
 				cliente.setId(Integer.parseInt(req.getParameter("idCliente")));
@@ -58,9 +56,8 @@ public class VendaServlet extends HttpServlet{
 			} catch (Exception e) {
 				req.getRequestDispatcher("deuruim.jsp").forward(req, resp);
 			}
-			break;
 			
-		case "READALL":
+		} else if(acao.equals("ReadALL")){
 			try {
 				List<Venda> vendas = vendaBo.listar();
 				
@@ -72,7 +69,7 @@ public class VendaServlet extends HttpServlet{
 				req.getRequestDispatcher("deuruim.jsp").forward(req, resp);
 			}
 			
-		case "DELETE":
+		}else if(acao.equals("DELETE")) {
 			try {
 				int idVenda = Integer.parseInt(req.getParameter("id"));
 				vendaBo.excluir(idVenda);
@@ -81,7 +78,6 @@ public class VendaServlet extends HttpServlet{
 				req.getRequestDispatcher("deuruim.jsp").forward(req, resp);
 			}
 			resp.sendRedirect("/Livraria/venda?acao=Listar");
-			break;
 			
 		}
 	}

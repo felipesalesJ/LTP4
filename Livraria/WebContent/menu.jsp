@@ -11,21 +11,21 @@
 <th>
 	<h2>Livro</h2>
 	<p><a href="/Livraria/livro/cadastrarLivro.jsp">Cadastro de livro</a><br/>
-	<p><a href="/Livraria/carro?acao=Listar"> Lista de livros</a>
+	<p><a href="/Livraria/livro?acao=ReadALL"> Lista de livros</a>
 	</th>
 <th>
 	<h2 >Cliente</h2>
-	<p><a	href="Livraria/Cliente/cadastroCliente.jsp">Cadastro de clientes</a><br/>
-	<p><a href="/Livraria/cliente?acao=Listar">Lista de clientes</a>
+	<p><a	href="/Livraria/cliente/cadastrarCliente.jsp">Cadastro de clientes</a><br/>
+	<p><a href="/Livraria/cliente?acao=ReadALL">Lista de clientes</a>
 	</th>
 <th>
 	<h2 >Venda</h2>
 	<p><a href="/Livraria/venda?acao=Vender">Vender livro</a><br/>
-	<p><a href="/Livraria/venda?acao=Listar"> Exibir todas as vendas de livros</a>
+	<p><a href="/Livraria/venda?acao=ReadALL"> Exibir todas as vendas de livros</a>
 	</th>
 </table>
 
-	<p><input type="button" onclick="location='/LojaDeCarro/login'" value="Sair"><br/>
+	<p><input type="button" onclick="location='/Livraria/login'" value="Sair"><br/>
 	</p>
 	
 

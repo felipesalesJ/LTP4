@@ -42,8 +42,7 @@
 	
 	</c:forEach>
 	</table>
-	<p><input type="button" onclick="location='/LTP4-Livraria/jsp/livro/cadastroLivro.jsp'" ><br/> 
-    <c:import url="/jsp/comum/opcaoMenuPrincipal.jsp" /> 
+	<p><input type="button" onclick="location='/Livraria/livro/cadastrarLivro.jsp'" ><br/> 
 	 </c:when>
 	</c:choose>
 </body>

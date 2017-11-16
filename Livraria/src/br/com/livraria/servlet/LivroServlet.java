@@ -22,23 +22,22 @@ public class LivroServlet extends HttpServlet{
 		Livro livro = new Livro();
 		LivroBo livroBo = new LivroBo();
 		
-		switch("acao"){
-		case "CREATE":
-			System.out.println();
+		if (acao.equals("CREATE")) {
+			System.out.println("CREATE");
 			try{
 				livro.setNome(req.getParameter("nome"));
 				livro.setIsnb(req.getParameter("isnb"));
 				livro.setAutor(req.getParameter("autor"));
 				livro.setPreco(Double.parseDouble("preco"));
 				livroBo.criar(livro);
-				resp.sendRedirect("/Livraria/livro?acao=readAll");
+				resp.sendRedirect("/Livraria/livro?acao=ReadAll");
 			}catch(Exception e){
 				System.out.println("error ao criar");
+				resp.sendRedirect("/Livraria/deuruim.jsp");
 			}
-			break;
 			
-		case "SEARCH":
-			System.out.println();
+		} else if (acao.equals("SEARCH")) {
+			System.out.println("SEARCH");
 			try{
 				livro = livroBo.buscaLivroId(Integer.parseInt(req.getParameter("id")));
 				req.setAttribute("livro", livro);
@@ -46,10 +45,9 @@ public class LivroServlet extends HttpServlet{
 			}catch(Exception e){
 				System.out.println("error ao procurar");
 			}
-			break;
-			
-		case "ReadALL":
-			System.out.println();
+
+		} else if (acao.equals("ReadALL")) {	
+			System.out.println("ReadALL");
 			try{
 				List<Livro> lista = LivroBo.listarTodos();
 				req.setAttribute("lista", lista);
@@ -57,10 +55,9 @@ public class LivroServlet extends HttpServlet{
 			}catch(Exception e){
 				System.out.println("error ao listar");
 			}
-			break;
 			
-		case "UPDATE":
-			System.out.println();
+		} else if (acao.equals("UPDATE")) {
+			System.out.println("UPDATE");
 			try{
 				livro.setNome(req.getParameter("nome"));
 				livro.setIsnb(req.getParameter("isnb"));
@@ -71,10 +68,9 @@ public class LivroServlet extends HttpServlet{
 			}catch(Exception e){
 				System.out.println("error no update");
 			}
-			break;
 			
-		case "DELETE":
-			System.out.println();
+		} else if (acao.equals("DELETAR")) {	
+			System.out.println("DELETAR");
 			try {
 				livro = livroBo.buscaLivroId(Integer.getInteger(req.getParameter("idlivro")));
 				livroBo.deleta(livro);
@@ -82,7 +78,10 @@ public class LivroServlet extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("error no delete");
 			}
-			break;
+			
+		} else {	
+			resp.sendRedirect("/Livraria/livro?acao=readAll");
+			resp.sendRedirect("/Livraria/deuruimmesmo.jsp");
 		}
 	}
 	

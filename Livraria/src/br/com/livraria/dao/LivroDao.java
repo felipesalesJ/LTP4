@@ -14,7 +14,7 @@ import br.com.livraria.modelo.Livro;
 
 public class LivroDao {
 
-	private Livro livro = new Livro();
+//	private Livro livro = new Livro();
 	
 	public boolean create(Livro livro) throws SQLException{
 		try{

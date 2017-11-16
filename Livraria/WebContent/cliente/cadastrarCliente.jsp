@@ -12,7 +12,7 @@
 	<form action="/Livraria/cliente" method="post">
 		<input type="hidden" name="acao" value="CREATE" />
 		Nome: <input type="text" name="nome" required="required"></br>
-		<p>Email: <input type="number" name="email" required="required"></br>
+		<p>Email: <input type="text" name="email" required="required"></br>
 		<p>CPF: <input type="text" name="cpf" required="required"></br>
 		<p><input type="submit" value="CREATE">
 	</form>	

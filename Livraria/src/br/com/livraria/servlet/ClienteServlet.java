@@ -24,8 +24,7 @@ public class ClienteServlet extends HttpServlet{
 		Cliente cliente = new Cliente();
 		ClienteBo clienteBo = new ClienteBo();
 		
-		switch("acao"){
-		case "CREATE":
+		if (acao.equals("CREATE")) {
 			System.out.println();
 			try{
 				cliente.setNome(req.getParameter("nome"));
@@ -34,11 +33,11 @@ public class ClienteServlet extends HttpServlet{
 				resp.sendRedirect("/Livraria/cliente?acao=readAll");
 			}catch(Exception e){
 				System.out.println("error ao criar");
+				resp.sendRedirect("/Livraria/deuruim.jsp");
 			}
-			break;
 			
-		case "SEARCH":
-			System.out.println();
+		} else if (acao.equals("SEARCH")) {
+			System.out.println("SEARCH");
 			try{
 				cliente = clienteBo.buscaClienteId(Integer.parseInt(req.getParameter("id")));
 				req.setAttribute("cliente", cliente);
@@ -46,10 +45,9 @@ public class ClienteServlet extends HttpServlet{
 			}catch(Exception e){
 				System.out.println("error ao procurar");
 			}
-			break;
 			
-		case "ReadALL":
-			System.out.println();
+		} else if (acao.equals("ReadALL")) {	
+			System.out.println("ReadALL");
 			try{
 				List<Cliente> lista = ClienteBo.listarTodos();
 				req.setAttribute("lista", lista);
@@ -57,10 +55,9 @@ public class ClienteServlet extends HttpServlet{
 			}catch(Exception e){
 				System.out.println("error ao listar");
 			}
-			break;
 			
-		case "UPDATE":
-			System.out.println();
+		} else if (acao.equals("UPDATE")) {
+			System.out.println("UPDATE");
 			try{
 				cliente.setNome(req.getParameter("nome"));
 				cliente.setEmail(req.getParameter("email"));
@@ -70,10 +67,9 @@ public class ClienteServlet extends HttpServlet{
 			}catch(Exception e){
 				System.out.println("error no update");
 			}
-			break;
 			
-		case "DELETE":
-			System.out.println();
+		} else if (acao.equals("DELETAR")) {	
+			System.out.println("DELETAR");
 			try {
 				cliente = clienteBo.buscaClienteId(Integer.getInteger(req.getParameter("idcliente")));
 				clienteBo.deleta(cliente);
@@ -81,8 +77,13 @@ public class ClienteServlet extends HttpServlet{
 			} catch (Exception e) {
 				System.out.println("error no delete");
 			}
-			break;
+		
+			
+		} else {	
+			resp.sendRedirect("/Livraria/livro?acao=readAll");
+			resp.sendRedirect("/Livraria/deuruimmesmo.jsp");
 		}
+		
 	}
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

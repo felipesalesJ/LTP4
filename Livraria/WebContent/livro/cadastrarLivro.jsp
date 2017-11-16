@@ -10,12 +10,13 @@
 <body>	
 	<h1></h1>
 	<form action="/Livraria/livro" method="post">
-		<input type="hidden" name="acao" value="CREATE" />
+	<input type="hidden" name="acao" value="CREATE" />
 		Nome: <input type="text" name="nome" required="required"></br>
 		<p>Preço: <input type="number" name="preco" required="required"></br>
 		<p>isnb: <input type="text" name="isnb" required="required"></br>
 		<p>Autor: <input type="text" name="autor" required="required"></br>
-		<p><input type="submit" value="create">
+		<input  type="hidden" name="acao" value="">
+		</br><input type="submit" value="CREATE"><br>
 	</form>	
 </body>
 </html>

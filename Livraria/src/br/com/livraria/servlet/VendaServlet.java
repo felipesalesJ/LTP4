@@ -41,7 +41,7 @@ public class VendaServlet extends HttpServlet{
 				List<Livro> livros;
 				livros = livroBo.listarTodos();
 				req.setAttribute("livros", livros);
-				req.getRequestDispatcher("/venda/RealizarVenda.jsp").forward(req, resp);
+				req.getRequestDispatcher("/venda/fazerVenda.jsp").forward(req, resp);
 			} catch (Exception e) {
 				req.getRequestDispatcher("/deuruim.jsp").forward(req, resp);
 			}
@@ -63,7 +63,7 @@ public class VendaServlet extends HttpServlet{
 				
 				
 				req.setAttribute("vendas", vendas);
-				req.getRequestDispatcher("venda/ListarVendas.jsp").forward(req, resp);
+				req.getRequestDispatcher("/venda/listarVendas.jsp").forward(req, resp);
 				
 			} catch (SQLException e) {
 				req.getRequestDispatcher("deuruim.jsp").forward(req, resp);
@@ -79,7 +79,10 @@ public class VendaServlet extends HttpServlet{
 			}
 			resp.sendRedirect("/Livraria/venda?acao=Listar");
 			
+		} else {
+			req.getRequestDispatcher("deuruimmesmo.jsp").forward(req, resp);
 		}
+		
 	}
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

@@ -22,6 +22,7 @@ public class ClienteDao {
 				prepStat.setString(1, cliente.getNome());
 				prepStat.setString(1, cliente.getCpf());
 				prepStat.setString(1, cliente.getEmail());
+				prepStat.setInt(1, cliente.getId());
 				prepStat.execute();
 				prepStat.close();
 				cnx.close();

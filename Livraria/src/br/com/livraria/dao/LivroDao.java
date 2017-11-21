@@ -20,7 +20,8 @@ public class LivroDao {
 		try{
 			Connection cnx = Conexao.getConnection();
 			if(cnx != null){
-				PreparedStatement prepStat = cnx.prepareStatement("Insert into livro(nome, isnb, preco, autor ) value (?,?,?,?)");
+				PreparedStatement prepStat = cnx.prepareStatement("Insert into livro(idlivro, nome, isnb, preco, autor ) value (?,?,?,?)");
+				prepStat.setInt(1, livro.getIdlivro());
 				prepStat.setString(1, livro.getNome());
 				prepStat.setString(1, livro.getIsnb());
 				prepStat.setDouble(1, livro.getPreco());

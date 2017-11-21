@@ -1,7 +1,7 @@
 package br.com.livraria.modelo;
 
 public class Cliente {
-	private int id;
+	private int idcliente;
 	
 	private String nome;
 	
@@ -10,10 +10,10 @@ public class Cliente {
 	private String cpf;
 	
 	public int getId() {
-		return id;
+		return idcliente;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int idcliente) {
+		this.idcliente = idcliente;
 	}
 	
 	public String getNome() {

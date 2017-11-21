@@ -20,7 +20,7 @@
 	</th>
 <th>
 	<h2 >Venda</h2>
-	<p><a href="/Livraria/venda?acao=Vender">Vender livro</a><br/>
+	<p><a href="/Livraria/venda?acao=VENDER">Vender livro</a><br/>
 	<p><a href="/Livraria/venda?acao=ReadALL"> Exibir todas as vendas de livros</a>
 	</th>
 </table>

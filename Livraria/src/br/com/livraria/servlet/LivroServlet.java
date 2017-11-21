@@ -28,7 +28,8 @@ public class LivroServlet extends HttpServlet{
 				livro.setNome(req.getParameter("nome"));
 				livro.setIsnb(req.getParameter("isnb"));
 				livro.setAutor(req.getParameter("autor"));
-				livro.setPreco(Double.parseDouble("preco"));
+				livro.setPreco(Double.parseDouble(req.getParameter("preco")));
+				livro.setIdlivro(Integer.parseInt(req.getParameter("preco")));
 				livroBo.criar(livro);
 				resp.sendRedirect("/Livraria/livro?acao=ReadAll");
 			}catch(Exception e){

@@ -9,7 +9,7 @@ public class Conexao {
 	public static Connection getConnection() throws SQLException{
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/test?user=root&password=1234");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/ltp4?user=root&password=1234");
 		}catch(Exception e){
 			System.out.println("null");
 		}
